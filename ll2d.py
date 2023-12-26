@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from datetime import datetime, timedelta
+from PIL import Image, ImageTk
 
 class Node:
     def __init__(self, data):
@@ -153,6 +154,17 @@ class DentistAppointmentSystemUI:
         self.root = root
         self.root.title("Diş Hekimliği Randevu Sistemi")
         self.doctor_system = DentistAppointmentSystem()
+
+        # Set window size
+        root.geometry("600x450")
+        
+        self.background_image = Image.open("doktor.jpg")  # Replace with your image path
+        self.background_photo = ImageTk.PhotoImage(self.background_image)
+        self.background_label = tk.Label(root, image=self.background_photo)
+        self.background_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+        # Set window opacity
+        root.attributes("-alpha", 0.8)  # Adjust the opacity level (0.0 to 1.0)
 
         self.name_label = tk.Label(root, text="Hasta Adı:")
         self.name_entry = tk.Entry(root)
