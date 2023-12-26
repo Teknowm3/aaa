@@ -156,10 +156,13 @@ class DentistAppointmentSystemUI:
         self.doctor_system = DentistAppointmentSystem()
 
         # Set window size
-        root.geometry("600x450")
+        root.geometry("800x450")
+
+        image_path = "doktor.jpg"
+        self.background_image = Image.open(image_path)  # Replace with your image path
         
-        self.background_image = Image.open("doktor.jpg")  # Replace with your image path
-        self.background_photo = ImageTk.PhotoImage(self.background_image)
+        resized_image = self.background_image.resize((800,450))
+        self.background_photo = ImageTk.PhotoImage(resized_image)
         self.background_label = tk.Label(root, image=self.background_photo)
         self.background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
